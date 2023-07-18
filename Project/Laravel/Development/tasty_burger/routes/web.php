@@ -33,9 +33,7 @@ Route::get('/about', function () {
 Route::get('/single', function () {
     return view('website.single');
 });
-Route::get('/menu', function () {
-    return view('website.menu');
-});
+Route::get('/menu', [productController::class, 'showProducts']);
 
 Route::get('/localization/{lang?}', function($lang = null){
     App::setLocale($lang);

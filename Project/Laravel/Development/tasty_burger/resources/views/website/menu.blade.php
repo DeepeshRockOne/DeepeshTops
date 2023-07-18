@@ -26,7 +26,21 @@
 					explicabo.Nemo
 					enim totam rem aperiam.</p>
 			</div>
+			@if (!empty($data))
 			<div class="row mt-4">
+				@foreach($data as $d)
+					<div class="col-md-4">
+						<div class="gallery-demo">
+							<a href="#gal{{$d->id+12}}">
+								<img src="{{url('admin/upload/products/'.$d->image)}}" alt="{{$d->name}}" class="img-fluid" />
+								<h4 class="p-mask">{{$d->name}} - <span>${{$d->price}}</span></h4>
+							</a>
+						</div>
+					</div>
+				@endforeach
+			</div>
+			@endif
+			<?php /*<div class="row mt-4">
 				<div class="col-md-4">
 					<div class="gallery-demo">
 						<a href="#gal1">
@@ -77,7 +91,7 @@
 						</a>
 					</div>
 				</div>
-			</div>
+			</div>*/ ?>
 		</div>
 	</section>
 

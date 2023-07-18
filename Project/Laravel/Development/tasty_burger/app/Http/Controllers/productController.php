@@ -104,6 +104,13 @@ class productController extends Controller
         //
     }
 
+    public function showProducts(product $product)
+    {
+        $data = product::all();
+
+        return view('website.menu', ['data'=>$data]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
