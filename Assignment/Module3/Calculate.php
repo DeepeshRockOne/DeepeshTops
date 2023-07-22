@@ -25,7 +25,7 @@
     </div>
     <div class="mb-3">
       <label>ENTER THE Chemistry MARKS:</label>
-      <input type="number" class="form-control"  placeholder="Enter Chemistry marks" name="physic" require>
+      <input type="number" class="form-control"  placeholder="Enter Chemistry marks" name="chemistry" require>
     </div>
     <div class="mb-3 mt-3">
       <label>ENTER Computer Marks:</label>
@@ -55,12 +55,12 @@ if(isset($_POST['submit']))
 {
 
   $maths=$_POST['maths'];
-  $physic=$_POST['physic'];
+  $chemistry=$_POST['chemistry'];
   $computer=$_POST['computer'];
   $biology=$_POST['biology'];
   $physic=$_POST['physic'];
   $precision =4;
-  $total=($maths+$physic+$computer+$biology+$physic);
+  $total=($maths+$chemistry+$computer+$biology+$physic);
   $per=($total/500.0)*100;
   $avg= $total/5.0 ; $precision;
   echo"the total number of five subject marks=".$total."";
@@ -71,20 +71,18 @@ if(isset($_POST['submit']))
   if($per>=75)
   {
     echo "first class";
-  }else if($per>=60)
+  }else if($per<75 && $per>=60)
   {
     echo"second class";
   }
-  else if($per>50)
+  else if($per<60 && $per>=40)
   {
     echo"third class";
   }
-  else if($per>40)
+  else if($per<40)
   {
     echo"fail";
   }
 
 }
 ?>
-
-

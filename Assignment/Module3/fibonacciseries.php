@@ -5,7 +5,7 @@ function fibonacci($n){
 
     $count=0;
     while($count<$n){
-        echo ''.$num;
+        echo ' '.$num;
         $num3=$num2+$num;
         $num=$num2;
         $num2=$num3;
