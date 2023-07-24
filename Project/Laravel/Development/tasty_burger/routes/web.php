@@ -56,12 +56,12 @@ Route::post('/insert_contact', [contactController::class, 'store']);
 
 /*--------------------------------*/
 
-Route::group(['middleware'=>['adminafterlogin']], function(){
+Route::group(['middleware'=>['adminbeforelogin']], function(){
     Route::get('/admin_login', [adminController::class, 'index']);
     Route::post('/admin_login_auth', [adminController::class, 'adminLoginAuth']);
 });
 
-Route::group(['middleware'=>['adminbeforelogin']], function(){
+Route::group(['middleware'=>['adminafterlogin']], function(){
     Route::get('/add_chef', function () {
         return view('admin.add_chef');
     });

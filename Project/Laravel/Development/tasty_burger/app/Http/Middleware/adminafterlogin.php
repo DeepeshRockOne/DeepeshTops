@@ -17,8 +17,11 @@ class adminafterlogin
     public function handle(Request $request, Closure $next)
     {
         if (session()->has('admin_id')) {
-            return redirect('admin_dashboard');
+
+        } else {
+            return redirect('admin_login');
         }
+
         return $next($request);
     }
 }

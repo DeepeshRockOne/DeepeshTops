@@ -17,10 +17,9 @@ class adminbeforelogin
     public function handle(Request $request, Closure $next)
     {
         if (session()->has('admin_id')) {
-
-        } else {
-            return redirect('admin_login');
+            return redirect('admin_dashboard');
         }
+
         return $next($request);
     }
 }
