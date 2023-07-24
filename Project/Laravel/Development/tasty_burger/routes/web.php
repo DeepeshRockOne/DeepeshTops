@@ -40,16 +40,16 @@ Route::get('/localization/{lang?}', function($lang = null){
     return view('website.localization');
 });
 
-Route::get('/register', [webuserController::class, 'index'])->middleware('userafterlogin');
-Route::post('/insert_register', [webuserController::class, 'store'])->middleware('userafterlogin');
+Route::get('/register', [webuserController::class, 'index'])->middleware('userbeforelogin');
+Route::post('/insert_register', [webuserController::class, 'store'])->middleware('userbeforelogin');
 
-Route::get('/login', [webuserController::class, 'login'])->middleware('userafterlogin');
-Route::post('/user_login_auth', [webuserController::class, 'userLoginAuth'])->middleware('userafterlogin');
-Route::get('/user_logout', [webuserController::class, 'userLogout'])->middleware('userbeforelogin');
+Route::get('/login', [webuserController::class, 'login'])->middleware('userbeforelogin');
+Route::post('/user_login_auth', [webuserController::class, 'userLoginAuth'])->middleware('userbeforelogin');
+Route::get('/user_logout', [webuserController::class, 'userLogout'])->middleware('userafterlogin');
 
-Route::get('/user_profile', [webuserController::class, 'userProfile'])->middleware('userbeforelogin');
-Route::get('/user_profile/{editid}', [webuserController::class, 'editUserProfile'])->middleware('userbeforelogin');
-Route::post('/update_user_profile/{editid}', [webuserController::class, 'updateUserProfile'])->middleware('userbeforelogin');
+Route::get('/user_profile', [webuserController::class, 'userProfile'])->middleware('userafterlogin');
+Route::get('/user_profile/{editid}', [webuserController::class, 'editUserProfile'])->middleware('userafterlogin');
+Route::post('/update_user_profile/{editid}', [webuserController::class, 'updateUserProfile'])->middleware('userafterlogin');
 
 Route::get('/contact', [contactController::class, 'index']);
 Route::post('/insert_contact', [contactController::class, 'store']);

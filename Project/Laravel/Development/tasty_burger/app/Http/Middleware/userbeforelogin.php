@@ -17,10 +17,9 @@ class userbeforelogin
     public function handle(Request $request, Closure $next)
     {
         if (session()->has('userid')) {
-
-        } else {
             return redirect('/');
         }
+
         return $next($request);
     }
 }
