@@ -6,7 +6,7 @@ use App\Models\webuser;
 use Illuminate\Http\Request;
 use App\Models\countrie;
 use App\Mail\welcomemail;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 use Session;
 use Mail;
 
