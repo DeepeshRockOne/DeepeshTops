@@ -49,31 +49,13 @@
             @endphp
             @foreach ($data as $d)
                 <div class="row align-items-center justify-content-center mb-20">
-                    <div class="col-xl-8 <?php if ($i % 2 != 0) { echo 'pl-5'; } ?>">
+                    <div class="col-xl-6 @php if ($i % 2 != 0) { echo 'pl-5'; } @endphp">
                         <div class="row align-items-center">
-                            <div class="col-xl-3 col-md-3">
+                            <div class="col-xl-9 col-md-9">
                                 <div class="music_field">
                                     <div class="thumb">
                                         <img src="{{url('admin/upload/song_images/'.$d->image)}}" alt="{{$d->image}}" width="100px">
                                     </div>
-                                    <!-- <div class="audio_name"> -->
-                                        <!-- <div class="name">
-                                            <h4>{{$d->name}}</h4>
-                                            @if (isset($d->created_at) && $d->created_at != '')
-                                                <p>Uploaded on {{date('d-m-Y', strtotime($d->created_at))}}</p>
-                                            @endif
-                                            @if (isset($d->song_category_name) && $d->song_category_name != '')
-                                                <p>Category {{$d->song_category_name}}</p>
-                                            @endif
-                                        </div> -->
-                                        <!-- <audio preload="auto" controls>
-                                            <source src="{{url('admin/upload/songs/'.$d->song)}}">
-                                        </audio> -->
-                                    <!-- </div> -->
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-3">
-                                <div class="music_field">
                                     <div class="audio_name">
                                         <div class="name">
                                             <h4>{{$d->name}}</h4>
@@ -84,12 +66,6 @@
                                                 <p>Category {{$d->song_category_name}}</p>
                                             @endif
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-md-6">
-                                <div class="music_field">
-                                    <div class="audio_name">
                                         <audio preload="auto" controls>
                                             <source src="{{url('admin/upload/songs/'.$d->song)}}">
                                         </audio>
@@ -102,10 +78,20 @@
                 @php $i++; @endphp
             @endforeach
         @else
-                <div class="col-12">
-                    <h2 class="contact-title text-center">Currently there is no song available. Please visit later.</h2>
-                </div>
+            <div class="col-12">
+                <h2 class="contact-title text-center">Currently there is no song available for this category.</h2>
+            </div>
+            <div class="form-group mt-3 text-center">
+                <a href="{{url('/song')}}" class="button button-userLoginForm btn_4 boxed-btn">View All Songs</a>
+            </div>
         @endif
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6 text-center">
+                <span>{{$data->links()}}</span>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
         </br>
     </div>
     <!-- music_area end  -->

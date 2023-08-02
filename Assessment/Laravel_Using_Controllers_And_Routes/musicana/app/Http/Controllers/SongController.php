@@ -27,25 +27,25 @@ class SongController extends Controller
         if ($song_cat_id != '') {
             $data = Song::join('songcategories', 'songs.scat_id', '=', 'songcategories.id')
                     ->where('songcategories.id', '=', $song_cat_id)
-                    ->get(['songs.*', 'songcategories.category_name as song_category_name']);
+                    ->paginate(5, ['songs.*', 'songcategories.category_name as song_category_name']);
 
-            if ($data->count() <= 0) {
+            /* if ($data->count() <= 0) {
                 $data = Song::join('songcategories', 'songs.scat_id', '=', 'songcategories.id')
-                    ->get(['songs.*', 'songcategories.category_name as song_category_name']);
-            }
+                    ->paginate(5, ['songs.*', 'songcategories.category_name as song_category_name']);
+            } */
         } else if ($search != '') {
             $data = Song::join('songcategories', 'songs.scat_id', '=', 'songcategories.id')
                     ->where('songcategories.category_name', 'LIKE', '%'.$search.'%')
                     ->orWhere('songs.name', 'LIKE', '%'.$search.'%')
-                    ->get(['songs.*', 'songcategories.category_name as song_category_name']);
+                    ->paginate(5, ['songs.*', 'songcategories.category_name as song_category_name']);
 
             if ($data->count() <= 0) {
                 $data = Song::join('songcategories', 'songs.scat_id', '=', 'songcategories.id')
-                    ->get(['songs.*', 'songcategories.category_name as song_category_name']);
+                    ->paginate(5, ['songs.*', 'songcategories.category_name as song_category_name']);
             }
         } else {
             $data = Song::join('songcategories', 'songs.scat_id', '=', 'songcategories.id')
-                    ->get(['songs.*', 'songcategories.category_name as song_category_name']);
+                    ->paginate(5, ['songs.*', 'songcategories.category_name as song_category_name']);
         }
 
         return view('website.song', compact('data', 'search'));
