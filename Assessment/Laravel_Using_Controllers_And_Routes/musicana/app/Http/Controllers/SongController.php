@@ -48,7 +48,7 @@ class SongController extends Controller
                     ->get(['songs.*', 'songcategories.category_name as song_category_name']);
         }
 
-        return view('website.song', compact('data'));
+        return view('website.song', compact('data', 'search'));
     }
 
     /**

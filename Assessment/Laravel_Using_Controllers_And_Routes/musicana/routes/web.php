@@ -40,9 +40,6 @@ Route::get('/index', function () {
 Route::get('/about', function () {
     return view('website.about');
 });
-Route::get('/elements', function () {
-    return view('website.elements');
-});
 Route::get('/contact', function () {
     return view('website.contact');
 });
@@ -79,46 +76,4 @@ Route::get('/delete_user/{deleteid}', [WebuserController::class, 'destroy']);
 
 Route::get('/blank', function () {
     return view('admin.blank');
-});
-Route::get('/404', function () {
-    return view('admin.404');
-});
-Route::get('/copycontent', function () {
-    return view('admin.copycontent');
-});
-Route::get('/alerts', function () {
-    return view('admin.alerts');
-});
-Route::get('/buttons', function () {
-    return view('admin.buttons');
-});
-Route::get('/datatables', function () {
-    return view('admin.datatables');
-});
-Route::get('/dropdowns', function () {
-    return view('admin.dropdowns');
-});
-Route::get('/form_advanceds', function () {
-    return view('admin.form_advanceds');
-});
-Route::get('/form_basics', function () {
-    return view('admin.form_basics');
-});
-Route::get('/form_advanceds', function () {
-    return view('admin.form_advanceds');
-});
-Route::get('/modals', function () {
-    return view('admin.modals');
-});
-Route::get('/popovers', function () {
-    return view('admin.popovers');
-});
-Route::get('/progress_bar', function () {
-    return view('admin.progress_bar');
-});
-Route::get('/simple_tables', function () {
-    return view('admin.simple_tables');
-});
-Route::get('/ui_colors', function () {
-    return view('admin.ui_colors');
 });
